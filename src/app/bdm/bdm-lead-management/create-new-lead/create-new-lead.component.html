@@ -1,0 +1,172 @@
+<form [formGroup]="leadForm" (ngSubmit)="createLead()">
+    <br />
+    <h5 class="display-5">Campaign Details</h5>
+    <div class="form-row">
+        <div class="form-group col-md-2 input-group-sm">
+            <select formControlName="department" id="department" class="form-control">
+                <option selected>Choose Lead Type</option>
+                <option value="Tele Marketing">Tele Marketing</option>
+                <option value="Email Marketing">Email Marketing</option>
+                <option value="CD">CD</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <select formControlName="campaign" id="campaignName" class="form-control">
+                <option selected>Choose Campaign Name</option>
+                <option *ngFor="let campaign of campaigns" [value] = campaign.campaignId >{{campaign.campaignName}}</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <select formControlName="asset" id="assetName" class="form-control">
+                <option selected>Choose Asset Title</option>
+                <option *ngFor="let asset of assets" [value] = asset.assetId >{{asset.assetName}}</option>
+            </select>
+        </div>
+    </div>
+
+    <h5 class="display-5">Prospect Details</h5>
+    <div class="form-row">
+        <div class="form-group col-md-2 input-group-sm">
+            <input type="email" class="form-control" formControlName="firstName" id="firstName" placeholder="First Name">
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="Last Name">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2 input-group-sm">
+            <input type="email" class="form-control" formControlName="jobTitle" id="jobTitle" placeholder="Job Title">
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <input type="email" class="form-control" formControlName="jobTitleLink" id="jobTitleLink" placeholder="Job Title Link">
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <select formControlName="jobLevel" id="jobLevel" class="form-control">
+                <option selected>Choose Job Level</option>
+                <option value="Staff">Staff</option>
+                <option value="Manager">Manager</option>
+                <option value="Director">Director</option>
+                <option value="Vice President">Vice President</option>
+                <option value="C-Level">C-Level</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <select formControlName="jobDepartment" id="jobDepartment" class="form-control">
+                <option selected>Choose Job Department</option>
+                <option value="Operations">Operations</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Finance">Finance</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Sales">Sales</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Facility">Facility</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-2 input-group-sm">
+            <input type="number" class="form-control" formControlName="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <input type="number" class="form-control" formControlName="directNumber" id="directNumber" placeholder="Direct Number">
+        </div>
+        <div class="form-group col-md-4 input-group-sm">
+            <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
+        </div>
+    </div>
+
+    <h5 class="display-5">Prospect Work Details</h5>
+    <div class="form-row">
+        <div class="form-group input-group-sm col-md-2">
+            <input type="text" class="form-control" formControlName="companyName" id="companyName" placeholder="Company Name">
+        </div>
+        <div class="form-group input-group-sm col-md-2">
+            <input type="text" class="form-control" formControlName="domain" id="domain" placeholder="Domain">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group input-group-sm col-md-2">
+            <input type="text" class="form-control" formControlName="industryType" id="industryType" placeholder="Industry Type">
+        </div>
+        <div class="form-group input-group-sm col-md-2">
+            <input type="text" class="form-control" formControlName="sicCode" id="sicCode" placeholder="SIC Code">
+        </div>
+        <div class="form-group input-group-sm col-md-2">
+            <input type="text" class="form-control" formControlName="naicsCode" id="naicsCode" placeholder="NAICS Code">
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <select formControlName="employeeSize" id="employeeSize" class="form-control">
+                <option selected>Choose Employee Size</option>
+                <option value="1-10">1-10</option>
+                <option value="11-50">11-50</option>
+                <option value="51-200">51-200</option>
+                <option value="201-500">201-500</option>
+                <option value="501-1000">501-1000</option>
+                <option value="1001-5000">1001-5000</option>
+                <option value="5001-10000">5001-10000</option>
+                <option value="10000+">10000+</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <select formControlName="revenueSize" id="revenueSize" class="form-control">
+                <option selected>Choose Revenue Size</option>
+                <option value="$1K-$500K">$1K-$500K</option>
+                <option value="$500K-$1M">$500K-$1M</option>
+                <option value="$1M-$5M">$1M-$5M</option>
+                <option value="$5M-$10M">$5M-$10M</option>
+                <option value="$10M-$20M">$10M-$20M</option>
+                <option value="$20M-$50M">$20M-$50M</option>
+                <option value="$50M-$100M">$50M-$100M</option>
+                <option value="$100M-$250M">$100M-$250M</option>
+                <option value="$250M-$500M">$250M-$500M</option>
+                <option value="$500M-$1B">$500M-$1B</option>
+                <option value="$1B-$5B">$1B-$5B</option>
+                <option value="$5B+">$5B+</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group input-group-sm col-md-2">
+            <input type="text" class="form-control" formControlName="industryTypeLink" id="industryTypeLink" placeholder="Industry Type Link">
+        </div>
+        <div class="form-group input-group-sm col-md-2">
+            <input type="text" class="form-control" formControlName="sicCodeLink" id="sicCodeLink" placeholder="SIC Code Link">
+        </div>
+        <div class="form-group input-group-sm col-md-2">
+            <input type="text" class="form-control" formControlName="naicsCodeLink" id="naicsCodeLink" placeholder="NAICS Code Link">
+        </div>
+        <div class="form-group input-group-sm col-md-2">
+            <input type="text" class="form-control" formControlName="employeeSizeLink" id="employeeSizeLink" placeholder="Employee Size Link">
+        </div>
+        <div class="form-group input-group-sm col-md-2">
+            <input type="text" class="form-control" formControlName="revenueSizeLink" id="revenueSizeLink" placeholder="Revenue Size Link">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group input-group-sm col-md-4">
+            <input type="text" class="form-control" formControlName="addressLine1" id="addressLine1" placeholder="Address Line 1">
+        </div>
+        <div class="form-group input-group-sm col-md-4">
+            <input type="text" class="form-control" formControlName="addressLine2" id="addressLine2" placeholder="Address Line 2">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2 input-group-sm">
+            <input type="text" class="form-control" formControlName="city" id="city" placeholder="City">
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <input type="text" class="form-control" formControlName="state" id="state" placeholder="State">
+        </div>
+        <div class="form-group col-md-1 input-group-sm">
+            <input type="text" class="form-control" formControlName="zipcode" id="zipcode" placeholder="ZipCode">
+        </div>
+        <div class="form-group col-md-2 input-group-sm">
+            <input type="text" class="form-control" formControlName="country" id="country" placeholder="Country">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Lead</button>
+</form>

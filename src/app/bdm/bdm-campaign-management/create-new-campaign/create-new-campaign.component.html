@@ -1,0 +1,16 @@
+<div class="d-flex">
+    <form [formGroup]="campaignForm" (ngSubmit)="createCampaign()">
+        <br/>
+        <h2>Create Campaign</h2>
+        <br/>
+        <div class="form-group" [ngClass]="{'alert alert-danger' : campaignForm.get('campaignName').errors && campaignForm.get('campaignName').touched && campaignForm.get('campaignName').dirty}">
+            <input class="form-control" type="text" id="campaignName" formControlName="campaignName" placeholder="Enter Campaign Name">
+            <span *ngIf="campaignForm.get('campaignName').errors && campaignForm.get('campaignName').touched && campaignForm.get('campaignName').dirty">
+                <span *ngIf="campaignForm.get('campaignName').errors.required">Campaign Name Required</span>
+                <span *ngIf="campaignForm.get('campaignName').errors.minlength || campaignForm.get('campaignName').errors.maxlength">Campaign Name should be greater than 2 characters and less than 10 characters </span>
+            </span>
+        </div>
+        <br/>
+        <button class="btn btn-primary" type="submit">Add Campaign</button>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+<div>
+    <br/>
+    <tr>
+        <td><button class="btn btn-success" (click)="createCampaign()">Create New Campaign</button></td>
+        <td><button class="btn btn-success" (click)="createAsset()">Create New Asset</button></td>
+    </tr>
+    <br/>
+
+    <div style="height:62vh;overflow:auto;display: block;" class="table-responsive">
+        <table class="table" style="white-space: nowrap">
+            <thead class="bg-dark">
+                <tr>
+                    <th class="thead-th">Campaign Id</th>
+                    <th class="thead-th">Campaign Name</th>
+                    <th class="thead-th">Asset Id</th>
+                    <th class="thead-th">Asset Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let campaign of campaigns">
+                    <td>{{campaign.campaignId}}</td>
+                    <td>{{campaign.campaignName}}</td>
+                    <td>
+                        <tr *ngFor="let asset of assets">
+                            <td *ngIf="campaign.campaignId == asset.campaignId">{{asset.assetId}}</td>
+                        </tr>
+                    </td>
+                    <td>
+                        <tr *ngFor="let asset of assets">
+                            <td *ngIf="campaign.campaignId == asset.campaignId">{{asset.assetName}}</td>
+                        </tr>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

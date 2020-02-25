@@ -1,0 +1,41 @@
+<div>
+    <br/>
+    <button class="btn btn-success" (click)="addEmployee()">Add New Employee</button>
+    <br/><br/>
+    <input class="form-control" placeholder="Type employee first name to search..." [(ngModel)]="searchKey" type="text"
+        id="searchKey" name="searchKey">
+    <br />
+    <div class="table-fixed">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Employee Full Name</th>
+                    <th>Designation</th>
+                    <th>Created By</th>
+                    <th>Created Date</th>
+                    <th>Modified By</th>
+                    <th>Modified Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let employee of employees | tablefilter : 'firstName' : searchKey">
+                    <td>{{employee.employeeId}}</td>
+                    <td>{{employee.firstName + " " + employee.lastName}}</td>
+                    <td>{{employee.designation}}</td>
+                    <td>{{employee.createdBy}}</td>
+                    <td>{{employee.createdDate | date : "short"}}</td>
+                    <td>{{employee.modifiedBy}}</td>
+                    <td>{{employee.modiefiedDate | date : "short"}}</td>
+                    <td class="btn-group">
+                        <button class="btn btn-primary" (click)="updateEmployee(employee)">Update</button>
+                        <button *ngIf="! employee.enabledFlag" class="btn btn-success" (click)="setEnabledFlag(employee)">Enable</button>
+                        <button *ngIf="employee.enabledFlag" class="btn btn-danger" (click)="setEnabledFlag(employee)">Disable</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

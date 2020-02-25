@@ -1,0 +1,36 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="{{homePageLink}}" *ngIf="getLinks">Home</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="{{leadManagementLink}}" *ngIf="getLinks">Lead
+                        Management</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="{{employeeManagementLink}}"
+                        *ngIf="getEmployeeManagementLinks">Employee Management</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="{{campaignManagementLink}}"
+                        *ngIf="getCampaignManagementLinks">Campaign Management</a></li>
+            </ul>
+            <ul class="navbar-nav" *ngIf="getLinks">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                        {{"Welcome "  + currentUser.firstName + " " + currentUser.lastName}}
+                    </a>
+                    <div class="dropdown-menu bg-dark" style="right: 0; color: white;">
+                        <a class="dropdown-item bg-dark" style="color: white ;" routerLink="{{profileLink}}" >Profile</a>
+                        <a class="dropdown-item bg-dark" style="color: white ;"routerLink="/logout">Logout</a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>

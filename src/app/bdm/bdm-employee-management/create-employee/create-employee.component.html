@@ -1,0 +1,43 @@
+<div class="d-flex">
+    <form [formGroup]="employeeForm" (ngSubmit)="createEmployee()">
+        <br/>
+        <h2>Create Employee</h2>
+        <br />
+        <div class="form-group" [ngClass]="{'alert alert-danger' : employeeForm.get('employeeId').errors && employeeForm.get('employeeId').touched && employeeForm.get('employeeId').dirty}">
+            <input class="form-control" type="text" id="employeeId" formControlName="employeeId" placeholder="Enter Employee ID">
+            <span *ngIf="employeeForm.get('employeeId').errors && employeeForm.get('employeeId').touched && employeeForm.get('employeeId').dirty">
+                <span *ngIf="employeeForm.get('employeeId').errors.required">Employee Id Required</span>
+            </span>
+        </div>
+        <div class="form-group" [ngClass]="{'alert alert-danger' : employeeForm.get('firstName').errors && employeeForm.get('firstName').touched && employeeForm.get('firstName').dirty}">
+            <input class="form-control" type="text" id="firstName" formControlName="firstName" placeholder="Enter First Name">
+            <span *ngIf="employeeForm.get('firstName').errors && employeeForm.get('firstName').touched && employeeForm.get('firstName').dirty">
+                <span *ngIf="employeeForm.get('firstName').errors.required">First Name Required</span>
+                <span *ngIf="employeeForm.get('firstName').errors.minlength || employeeForm.get('firstName').errors.maxlength">First Name should be greater than 2 characters and less than 10 characters </span>
+            </span>
+        </div>
+        <div class="form-group" [ngClass]="{'alert alert-danger' : employeeForm.get('lastName').errors && employeeForm.get('lastName').touched && employeeForm.get('lastName').dirty}">
+            <input class="form-control" type="text" id="lastName" formControlName="lastName" placeholder="Enter Last Name">
+            <span *ngIf="employeeForm.get('lastName').errors && employeeForm.get('lastName').touched && employeeForm.get('lastName').dirty">
+                <span *ngIf="employeeForm.get('lastName').errors.required">Last Name Required</span>
+                <span *ngIf="employeeForm.get('lastName').errors.minlength || employeeForm.get('lastName').errors.maxlength">Last Name should be greater than 2 characters and less than 10 characters </span>
+            </span>
+        </div>
+        <div class="form-group" [ngClass]="{'alert alert-danger' : employeeForm.get('designation').errors && employeeForm.get('designation').touched && employeeForm.get('designation').dirty}">
+            <select class="form-control" formControlName="designation" data-toggle="tooltip" data-placement="right">
+                <option value="BDM">BDM</option>
+                <option value="TEAM LEADER">TEAM LEADER</option>
+                <option value="AGENT">AGENT</option>
+            </select>
+        </div>
+        <div class="form-group" [ngClass]="{'alert alert-danger' : employeeForm.get('password').errors && employeeForm.get('password').touched && employeeForm.get('password').dirty}">
+            <input class="form-control" type="password" id="password" formControlName="password" placeholder="Enter Password">
+            <span *ngIf="employeeForm.get('password').errors && employeeForm.get('password').touched && employeeForm.get('password').dirty">
+                <span *ngIf="employeeForm.get('password').errors.required">Password Required</span>
+                <span *ngIf="employeeForm.get('password').errors.minlength || employeeForm.get('password').errors.maxlength">Password should be greater than 2 characters and less than 10 characters </span>
+            </span>
+        </div>
+        <br/>
+        <button class="btn btn-primary" type="submit">Add Employee</button>
+    </form>
+</div>

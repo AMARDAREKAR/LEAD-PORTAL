@@ -1,0 +1,33 @@
+export class Lead {
+        leadId: number;
+        department: string;
+        companyName: string;
+        industryType:string;
+        employeeSize:string;
+        domain:string;
+        sicCode:string;
+        naicsCode:string;
+        revenueSize:string;
+        employeeSizeLink:string;
+        industryTypeLink:string;
+        revenueSizeLink:string;
+        sicCodeLink:string;
+        naicsCodeLink:string;
+        country:string;
+        state:string;
+        city:string;
+        zipcode:string;
+        addressLine1:string;
+        addressLine2:string;
+        campaign: number;
+        asset: number;
+        firstName:string;
+        lastName:string;
+        jobTitle:string;
+        jobLevel:string;
+        jobDepartment:string;
+        email:string;
+        jobTitleLink:string;
+        phoneNumber:number;
+        directNumber:number;
+}

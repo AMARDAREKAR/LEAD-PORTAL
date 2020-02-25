@@ -1,0 +1,88 @@
+<div>
+    <br/>
+    <button class="btn btn-success" (click)="addLead()">Add New Lead</button>
+    <br/><br/>
+    <div class="table-fixed">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Prospect Name</th>
+                    <th>Date</th>
+                    <th>Lead Type</th>
+                    <th>Campaign Name</th>
+                    <th>Asset Title</th>
+                    <th>Prospect JobTitle</th>
+                    <th>Prospect JobLevel</th>
+                    <th>Prospect JobDepartment</th>
+                    <th>Prospect Email</th>
+                    <th>Prospect PhoneNumber</th>
+                    <th>Prospect DirectNumber</th>
+                    <th>Company Name</th>
+                    <th>Address Line1</th>
+                    <th>Address Line2</th>
+                    <th>City</th>
+					<th>State</th>
+					<th>Zip Code</th>
+					<th>Country</th>
+					<th>Industry Type</th>
+                    <th>Employee Size</th>
+                    <th>Revenue Size</th>
+					<th>SIC Code </th>
+                    <th>NAICS Code </th>
+                    <th>Prospect Job Title Link</th>
+					<th>Employee Size Link</th>
+					<th>Revenue Size Link</th>
+					<th>Industry Type Link</th>
+					<th>SIC Code Link</th>
+					<th>NAICS Code Link</th>
+                    <th>Domain</th>
+                    <th>Lead Status</th>
+                    <th>Agent Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let lead of leads">
+                    <td>{{lead.prospect.firstName + " " +lead.prospect.lastName}}</td>
+                    <td>{{lead.date | date : "shortDate"}}</td>
+                    <td>{{lead.department}}</td>
+                    <td>{{lead.campaign.campaignName}}</td>
+                    <td>{{lead.asset.assetName}}</td>           
+                    <td>{{lead.prospect.jobTitle}}</td>
+                    <td>{{lead.prospect.jobLevel}}</td>
+                    <td>{{lead.prospect.jobDepartment}}</td>
+                    <td>{{lead.prospect.email}}</td>
+                    <td>{{lead.prospect.phoneNumber}}</td>
+                    <td>{{lead.prospect.directNumber}}</td>
+                    <td>{{lead.company.companyName}}</td>
+                    <td>{{lead.company.address.addressLine1}}</td>
+                    <td>{{lead.company.address.addressLine2}}</td>
+                    <td>{{lead.company.address.city}}</td>
+                    <td>{{lead.company.address.state}}</td>
+                    <td>{{lead.company.address.zipcode}}</td>
+                    <td>{{lead.company.address.country}}</td>
+                    <td>{{lead.company.industryType}}</td>
+                    <td>{{lead.company.employeeSize}}</td>
+                    <td>{{lead.company.revenueSize}}</td>
+                    <td>{{lead.company.sicCode}}</td>
+                    <td>{{lead.company.naicsCode}}</td>
+                    <td>{{lead.prospect.jobTitleLink}}</td>
+                    <td>{{lead.company.employeeSizeLink}}</td>
+                    <td>{{lead.company.industryTypeLink}}</td>
+                    <td>{{lead.company.revenueSizeLink}}</td>
+                    <td>{{lead.company.sicCodeLink}}</td>
+                    <td>{{lead.company.naicsCodeLink}}</td>     
+                    <td>{{lead.company.domain}}</td>               
+                    <td>{{lead.leadStatus}}</td>
+                    <td>{{lead.agent.firstName + " " +lead.agent.lastName}}</td>
+                    <td class="btn-group">
+                        <button class="btn btn-primary" (click)="updateLead(lead)">Update</button>
+                        <button class="btn btn-danger" (click)="deleteLead(lead)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+  
